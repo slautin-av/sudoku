@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f3efe6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#14161b" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="Судоку без рекламы и без угадывания">
+  <title>Судоку</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <div class="app">
+    <header class="bar">
+      <button class="icon-btn" id="btn-menu" aria-label="Меню">
+        <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <div class="bar-title" id="level-name">Судоку</div>
+      <div class="bar-right">
+        <span class="timer" id="timer">0:00</span>
+        <button class="icon-btn" id="btn-pause" aria-label="Пауза">
+          <svg viewBox="0 0 24 24" class="i-pause"><path d="M9 5v14M15 5v14"/></svg>
+          <svg viewBox="0 0 24 24" class="i-play"><path d="M8 5l11 7-11 7z"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="board-wrap">
+      <div class="board" id="board" aria-label="Поле судоку"></div>
+      <div class="paused" id="paused" hidden>
+        <div class="paused-title">Пауза</div>
+        <button class="btn primary" id="btn-resume">Продолжить</button>
+      </div>
+    </main>
+
+    <div class="controls">
+    <div class="tools">
+      <button class="tool" id="btn-undo">
+        <svg viewBox="0 0 24 24"><path d="M9 14L4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/></svg>
+        <span>Отменить</span>
+      </button>
+      <button class="tool" id="btn-erase">
+        <svg viewBox="0 0 24 24"><path d="M7 21l-4.3-4.3a2.4 2.4 0 0 1 0-3.4l9.6-9.6a2.4 2.4 0 0 1 3.4 0l5.6 5.6a2.4 2.4 0 0 1 0 3.4L13 21"/><path d="M22 21H7M5 11l9 9"/></svg>
+        <span>Стереть</span>
+      </button>
+      <button class="tool" id="btn-notes" aria-pressed="false">
+        <svg viewBox="0 0 24 24"><path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/><path d="M15 5l4 4"/></svg>
+        <span>Заметки</span>
+        <b class="badge" id="notes-badge">выкл</b>
+      </button>
+    </div>
+
+    <div class="pad" id="pad"></div>
+    </div>
+  </div>
+
+  <div class="sheet" id="sheet" hidden>
+    <div class="sheet-backdrop" id="sheet-backdrop"></div>
+    <div class="sheet-panel" id="sheet-panel" role="dialog" aria-modal="true"></div>
+  </div>
+</body>
+</html>
